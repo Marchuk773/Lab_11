@@ -1,4 +1,4 @@
-from tools.models.abstract_tool import AbstractTool
+from tools.main.models.abstract_tool import AbstractTool
 
 
 class Scissors(AbstractTool):
