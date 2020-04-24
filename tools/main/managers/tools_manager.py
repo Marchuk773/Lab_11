@@ -3,7 +3,6 @@ from overload import overload
 from tools.main.models.axe import Axe
 from tools.main.models.saw import Saw
 from tools.main.models.scissors import Scissors
-import doctest
 
 
 class ToolsManager:
@@ -32,12 +31,9 @@ class ToolsManager:
         >>> print(manager.find_by_price(35, 55)[1].price)
         50
         """
-        found_tools = []
-        for tool in self.tools_list:
-            if lower_price <= tool.price <= higher_price:
-                found_tools.append(tool)
-        else:
-            ToolsManagerUtils.sort_by_price(found_tools)
+        found_tools = list(
+            filter(lambda iterated_tool: lower_price <= iterated_tool.price <= higher_price, self.tools_list))
+        ToolsManagerUtils.sort_by_price(found_tools)
         return found_tools
     
     @find_by_price.add
@@ -45,11 +41,7 @@ class ToolsManager:
         """
         because of overloading this test would not work, so test is in original method
         """
-        found_tools = []
-        for tool in self.tools_list:
-            if tool.price == given_price:
-                found_tools.append(tool)
-        return found_tools
+        return list(filter(lambda iterated_tool: iterated_tool.price == given_price, self.tools_list))
     
     def find_by_name(self, name):
         """
@@ -57,14 +49,12 @@ class ToolsManager:
         >>> print(manager.find_by_name("My saw")[0].name)
         My saw
         """
-        found_tools = []
-        for tool in self.tools_list:
-            if tool.name == name:
-                found_tools.append(tool)
-        return found_tools
+        return list(filter(lambda iterated_tool: iterated_tool.name == name, self.tools_list))
 
 
 if __name__ == '__main__':
+    import doctest
+    
     doctest.testmod(verbose=True, extraglobs={'manager': ToolsManager(tools_list=[Axe(40, "Super axe", 3),
                                                                                   Saw(30, "My saw", 2),
                                                                                   Scissors(50, "Gardening scissors"),
