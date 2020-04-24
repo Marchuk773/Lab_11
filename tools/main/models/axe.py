@@ -3,7 +3,8 @@ from tools.main.models.abstract_tool import AbstractTool
 
 class Axe(AbstractTool):
     
-    def __init__(self, price_in_dollars, name, handle_material, weight_in_kilos=2, color="brown", is_stainless=True):
+    def __init__(self, price_in_dollars, name, weight_in_kilos=2, handle_material="wood", color="brown",
+                 is_stainless=True):
         super().__init__(price_in_dollars, name, weight_in_kilos, color, is_stainless)
         self.handle_material = handle_material
     

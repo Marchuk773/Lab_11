@@ -13,10 +13,10 @@ def get_at_place(place, given_list):
 
 class ToolsManagerTest(unittest.TestCase):
     def setUp(self):
-        self.first_tool = Axe(40, "Super axe", "wood")
-        self.second_tool = Saw(30, "My saw", 20)
+        self.first_tool = Axe(40, "Super axe")
+        self.second_tool = Saw(30, "My saw")
         self.third_tool = Scissors(50, "Gardening scissors")
-        self.fourth_tool = Saw(60, "Ultra saw", 30)
+        self.fourth_tool = Saw(60, "Ultra saw")
         self.tools_list = [self.first_tool, self.second_tool, self.third_tool, self.fourth_tool]
         self.manager = ToolsManager(self.tools_list)
 

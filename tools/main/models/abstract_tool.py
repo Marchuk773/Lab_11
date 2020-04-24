@@ -11,5 +11,5 @@ class AbstractTool(ABC):
         self.is_stainless = is_stainless
     
     def __str__(self):
-        return "Price is %s$, name is %s, weight = %s kilos, color is %s, the steel is stainless: %s" % (
+        return "price = %s$, name = %s, weight = %s kilos, color = %s, the steel is stainless: %s" % (
             self.price, self.name, self.weight, self.color, self.is_stainless)
