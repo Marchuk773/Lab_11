@@ -7,10 +7,6 @@ from tools.main.models.saw import Saw
 from tools.main.models.scissors import Scissors
 
 
-def get_at_place(place, given_list):
-    return given_list[place]
-
-
 class ToolsManagerTest(unittest.TestCase):
     def setUp(self):
         self.first_tool = Axe(40, "Super axe")
@@ -33,17 +29,17 @@ class TestFinding(ToolsManagerTest):
 class TestSorting(ToolsManagerTest):
     def test_sorting_by_price(self):
         ToolsManagerUtils.sort_by_price(self.tools_list)
-        self.assertEqual(first=get_at_place(0, self.tools_list), second=self.second_tool)
-        self.assertEqual(first=get_at_place(1, self.tools_list), second=self.first_tool)
-        self.assertEqual(first=get_at_place(2, self.tools_list), second=self.third_tool)
-        self.assertEqual(first=get_at_place(3, self.tools_list), second=self.fourth_tool)
+        self.assertEqual(first=self.tools_list[0], second=self.second_tool)
+        self.assertEqual(first=self.tools_list[1], second=self.first_tool)
+        self.assertEqual(first=self.tools_list[2], second=self.third_tool)
+        self.assertEqual(first=self.tools_list[3], second=self.fourth_tool)
     
     def test_sorting_by_name(self):
         ToolsManagerUtils.sort_by_name(self.tools_list)
-        self.assertEqual(first=get_at_place(0, self.tools_list), second=self.third_tool)
-        self.assertEqual(first=get_at_place(1, self.tools_list), second=self.second_tool)
-        self.assertEqual(first=get_at_place(2, self.tools_list), second=self.first_tool)
-        self.assertEqual(first=get_at_place(3, self.tools_list), second=self.fourth_tool)
+        self.assertEqual(first=self.tools_list[0], second=self.third_tool)
+        self.assertEqual(first=self.tools_list[1], second=self.second_tool)
+        self.assertEqual(first=self.tools_list[2], second=self.first_tool)
+        self.assertEqual(first=self.tools_list[3], second=self.fourth_tool)
 
 
 if __name__ == '__main__':
