@@ -1,7 +1,4 @@
-from abc import ABC
-
-
-class AbstractTool(ABC):
+class AbstractTool:
     
     def __init__(self, price_in_dollars, name, weight_in_kilos, color, is_stainless):
         self.price = price_in_dollars
